@@ -1,0 +1,33 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        // 本地磁盘Maven仓库地址
+        /*maven {
+            url 'file://D://zff//UploadLocalMaven//repository'
+        }*/
+
+        // 局域网Maven仓库地址
+        maven { url 'http://localhost:8081/repository/load/' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
